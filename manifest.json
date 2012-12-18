@@ -1,5 +1,5 @@
 {
-  "description": "Show freshness of pages being served up by Varnish cache based on HIT/MISS headers.",
+  "description": "A simple Google Chrome extension that shows if a page being served up via a Varnish web accelerator is fresh or not.",
   "background": {
     "scripts": [
       "background.js"

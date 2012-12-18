@@ -1,6 +1,6 @@
 # Varnish Inspector
 
-A simple Google Chrome extension that shows the freshness of a pages being served up by Varnish cache based on HIT/MISS headers.
+A simple Google Chrome extension that shows if a page being served up via a Varnish web accelerator is fresh or not.
 
 ## Screenshots
 
