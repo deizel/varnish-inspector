@@ -19,7 +19,9 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
             button.status = 'miss';
         }
       }
-      button.hits = (header.name === 'X-Cache-Hits') ? parseInt(header.value, 10) : null;
+      if(header.name === 'X-Cache-Hits') {
+        button.hits =  header.value;
+      }
     }
   }
 }, {
@@ -32,25 +34,37 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
 chrome.webNavigation.onCompleted.addListener(function(details) {
   if (details.frameId === 0) {
     var color = (button.active) ? 'blue' : 'gray';
-    switch (button.status) {
-      case 'hit':
-        color = 'green';
-        chrome.browserAction.setBadgeBackgroundColor({
-          color: [0, 160, 0, 200],
-          tabId: details.tabId
-        });
+    if(button.status !== null) {
+      switch (button.status) {
+        case 'hit':
+          color = 'green';
+          chrome.browserAction.setBadgeBackgroundColor({
+            color: [0, 160, 0, 200],
+            tabId: details.tabId
+          });
+          chrome.browserAction.setBadgeText({
+            text: button.hits,
+            tabId: details.tabId
+          });
+          break;
+        case 'miss':
+          color = 'red';
+          chrome.browserAction.setBadgeBackgroundColor({
+            color: [255, 0, 0, 255],
+            tabId: details.tabId
+          });
+          chrome.browserAction.setBadgeText({
+            text: 'MISS',
+            tabId: details.tabId
+          });
+          break;
+      }
+    }
+    else {
         chrome.browserAction.setBadgeText({
-          text: button.hits.toString(),
-          tabId: details.tabId
+        text: '',
+        tabId: details.tabId
         });
-        break;
-      case 'miss':
-        color = 'red';
-        chrome.browserAction.setBadgeText({
-          text: 'MISS',
-          tabId: details.tabId
-        });
-        break;
     }
     chrome.browserAction.setIcon({
       path: 'img/button_' + color + '.png',
