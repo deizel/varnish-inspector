@@ -1,5 +1,5 @@
 {
-  "description": "A simple Google Chrome extension that shows if a page being served up via a Varnish web accelerator is fresh or not. Forked from https://github.com/deizel/varnish-inspector, latest source at https://github.com/jbarciauskas/varnish-inspector/",
+  "description": "Shows if a page being served via Varnish is a HIT or MISS. Latest source at https://github.com/jbarciauskas/varnish-inspector/",
   "background": {
     "scripts": [
       "background.js"
