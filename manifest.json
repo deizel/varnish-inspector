@@ -1,5 +1,5 @@
 {
-  "description": "A simple Google Chrome extension that shows if a page being served up via a Varnish web accelerator is fresh or not.",
+  "description": "A simple Google Chrome extension that shows if a page being served up via a Varnish web accelerator is fresh or not. Forked from https://github.com/deizel/varnish-inspector, latest source at https://github.com/jbarciauskas/varnish-inspector/",
   "background": {
     "scripts": [
       "background.js"
@@ -13,8 +13,8 @@
     "48":  "img/icon_medium.png",
     "128": "img/icon_large.png"
   },
-  "manifest_version": 2,
-  "name": "Varnish Indicator",
+  "manifest_version": 1,
+  "name": "Varnish Indicator (forked, improved)",
   "permissions": [
     "webRequest",
     "webNavigation",
