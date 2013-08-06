@@ -14,7 +14,7 @@
     "128": "img/icon_large.png"
   },
   "manifest_version": 2,
-  "name": "Varnish Indicator",
+  "name": "Varnish Indicator (forked, improved)",
   "permissions": [
     "webRequest",
     "webNavigation",
@@ -22,5 +22,5 @@
     "https://*/*"
   ],
   "minimum_chrome_version": "17",
-  "version": "0.1.0"
+  "version": "1.0.0"
 }
